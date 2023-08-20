@@ -10,7 +10,7 @@
 #define buffer_size 1024
 /**
  * struct format - match the Conversion parameters for printf
- * @c: type char pointer
+ * @type: type char pointer
  * @f: type pointer to function for the conversion parameters
  */
 typedef struct format
