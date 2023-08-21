@@ -11,6 +11,8 @@ int _printf_string(va_list list)
 	int cntr = 0;
 
 	str = va_arg(list, char *);
+	if (str == NULL)
+		str = "(null)";
 	while (str[cntr])
 	{
 		_putchar(str[cntr]);
