@@ -32,7 +32,6 @@ int _printf_binary(va_list list)
 		_putchar(binary[i] + '0');
 		cntr++;
 	}
-
 	return (cntr);
 }
 
@@ -50,6 +49,8 @@ int _printf_HEXA(va_list list)
 	int cntr = 0, l = 0;
 
 	res = malloc(sizeof(int) * 10);
+	if (res == NULL)
+		return (0);
 	if (num == 0)
 	{
 		_putchar('0');
@@ -83,6 +84,8 @@ int _printf_hexa(va_list list)
 	int cntr = 0, l = 0;
 
 	res = malloc(sizeof(int) * 10);
+	if (res == NULL)
+		return (0);
 	if (num == 0)
 	{
 		_putchar('0');
@@ -115,6 +118,8 @@ int _printf_octal(va_list list)
 	int cntr = 0, l = 0;
 
 	res = malloc(sizeof(int) * 10);
+	if (res == NULL)
+		return (0);
 	if (num == 0)
 	{
 		_putchar('0');
