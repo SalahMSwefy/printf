@@ -11,7 +11,9 @@ int hex(unsigned long int num)
 	char hexa[] = "0123456789abcdef";
 	int cntr = 0, l = 0;
 
-	res = malloc(sizeof(int) * 10);
+	res = malloc(sizeof(char) * 8);
+	if (res == NULL)
+		return (-1);
 	if (num == 0)
 	{
 		_putchar('0');
@@ -41,7 +43,9 @@ int HEX(unsigned long int num)
 	char hexa[] = "0123456789ABCDEF";
 	int cntr = 0, l = 0;
 
-	res = malloc(sizeof(int) * 10);
+	res = malloc(sizeof(char) * 8);
+	if (res == NULL)
+		return (-1);
 	if (num == 0)
 	{
 		_putchar('0');
