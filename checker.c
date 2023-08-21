@@ -20,7 +20,7 @@ int checker(char c, va_list list)
 		case '%':
 			return (_printf_perc());
 		case 'u':
-			return (_printf_unsigned(list));
+			return (_printf_unsig(list));
 		case 'b':
 			return (_printf_binary(list));
 		case 'o':
