@@ -48,9 +48,9 @@ int _printf_HEXA(va_list list)
 	char hexa[] = "0123456789ABCDEF";
 	int cntr = 0, l = 0;
 
-	res = malloc(sizeof(int) * 10);
+	res = malloc(sizeof(char) * 9);
 	if (res == NULL)
-		return (0);
+		return (-1);
 	if (num == 0)
 	{
 		_putchar('0');
@@ -83,9 +83,9 @@ int _printf_hexa(va_list list)
 	char hexa[] = "0123456789abcdef";
 	int cntr = 0, l = 0;
 
-	res = malloc(sizeof(int) * 10);
+	res = malloc(sizeof(char) * 9);
 	if (res == NULL)
-		return (0);
+		return (-1);
 	if (num == 0)
 	{
 		_putchar('0');
@@ -117,9 +117,9 @@ int _printf_octal(va_list list)
 	unsigned int num = va_arg(list, unsigned int);
 	int cntr = 0, l = 0;
 
-	res = malloc(sizeof(int) * 10);
+	res = malloc(sizeof(int) * 12);
 	if (res == NULL)
-		return (0);
+		return (-1);
 	if (num == 0)
 	{
 		_putchar('0');
