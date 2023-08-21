@@ -59,7 +59,21 @@ int _printf_unsigned(va_list list)
 		r /= 10;
 		len++;
 	}
-
 	_putchar(last + '0');
 	return (len);
+}
+
+/**
+ * _printf_unknown - prints unknown specifiers
+ * @c: char
+ * Return: number of characters printed
+ */
+
+int _printf_unknown(char c)
+{
+	if (c == '\0')
+		return (-1);
+	_putchar(37);
+	_putchar(c);
+	return (2);
 }
