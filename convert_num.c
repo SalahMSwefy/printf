@@ -32,6 +32,7 @@ int _printf_binary(va_list list)
 		_putchar(binary[i] + '0');
 		cntr++;
 	}
+
 	return (cntr);
 }
 
@@ -43,31 +44,23 @@ int _printf_binary(va_list list)
 
 int _printf_HEXA(va_list list)
 {
-	char *res;
 	unsigned int num = va_arg(list, unsigned int);
 	char hexa[] = "0123456789ABCDEF";
-	int cntr = 0, l = 0;
+	int cntr = 0, shift, nibble;
 
-	res = malloc(sizeof(char) * 9);
-	if (res == NULL)
-		return (-1);
 	if (num == 0)
 	{
 		_putchar('0');
 		return (1);
 	}
 
-	while (num > 0)
+	for (shift = sizeof(num) * 8 - 4; shift >= 0; shift -= 4)
 	{
-		res[l] = hexa[num % 16];
-		num /= 16;
-		l++;
+		nibble = (num >> shift) & 0xF;
+		_putchar(hexa[nibble]);
 		cntr++;
 	}
 
-	while (l--)
-		_putchar(res[l]);
-	free(res);
 	return (cntr);
 }
 
@@ -78,31 +71,23 @@ int _printf_HEXA(va_list list)
  */
 int _printf_hexa(va_list list)
 {
-	char *res;
 	unsigned int num = va_arg(list, unsigned int);
 	char hexa[] = "0123456789abcdef";
-	int cntr = 0, l = 0;
+	int cntr = 0, shift, nibble;
 
-	res = malloc(sizeof(char) * 9);
-	if (res == NULL)
-		return (-1);
 	if (num == 0)
 	{
 		_putchar('0');
 		return (1);
 	}
 
-	while (num > 0)
+	for (shift = sizeof(num) * 8 - 4; shift >= 0; shift -= 4)
 	{
-		res[l] = hexa[num % 16];
-		num /= 16;
-		l++;
+		nibble = (num >> shift) & 0xF;
+		_putchar(hexa[nibble]);
 		cntr++;
 	}
 
-	while (l--)
-		_putchar(res[l]);
-	free(res);
 	return (cntr);
 }
 
@@ -113,11 +98,11 @@ int _printf_hexa(va_list list)
  */
 int _printf_octal(va_list list)
 {
-	int *res;
+	char *res;
 	unsigned int num = va_arg(list, unsigned int);
-	int cntr = 0, l = 0;
+	int cntr = 0, l = 0, j;
 
-	res = malloc(sizeof(int) * 12);
+	res = malloc(sizeof(char) * 12);
 	if (res == NULL)
 		return (-1);
 	if (num == 0)
@@ -128,14 +113,14 @@ int _printf_octal(va_list list)
 
 	while (num > 0)
 	{
-		res[l] = (num % 8);
+		res[l] = '0' + (num % 8);
 		num /= 8;
 		cntr++;
 		l++;
 	}
 
-	while (l--)
-		_putchar(res[l] + '0');
+	for (j = l - 1; j >= 0; j--)
+		_putchar(res[j]);
 	free(res);
 	return (cntr);
 }
