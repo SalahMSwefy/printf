@@ -48,7 +48,7 @@ int _printf_HEXA(va_list list)
 	char hexa[] = "0123456789ABCDEF";
 	int cntr = 0, l = 0;
 
-	res = malloc(sizeof(char) * 9);
+	res = malloc(sizeof(char) * 8);
 	if (res == NULL)
 		return (-1);
 	if (num == 0)
@@ -83,7 +83,7 @@ int _printf_hexa(va_list list)
 	char hexa[] = "0123456789abcdef";
 	int cntr = 0, l = 0;
 
-	res = malloc(sizeof(char) * 9);
+	res = malloc(sizeof(char) * 8);
 	if (res == NULL)
 		return (-1);
 	if (num == 0)
