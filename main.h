@@ -8,19 +8,10 @@
 #include <unistd.h>
 
 #define buffer_size 1024
-/**
- * struct format - match the Conversion parameters for printf
- * @type: type char pointer
- * @f: type pointer to function for the conversion parameters
- */
-typedef struct format
-{
-	char *type;
-	int (*f)();
-} paramter;
 
 int _putchar(char c);
 int _printf(const char * const format, ...);
+int checker(char c, va_list list);
 int _printf_int(va_list list);
 int _printf_perc(void);
 int _printf_str_rev(va_list list);
@@ -34,10 +25,10 @@ int _printf_binary(va_list list);
 int _printf_unsigned(va_list list);
 int _printf_ex_str(va_list list);
 int _printf_pointer(va_list list);
+int _printf_unknown(char c);
 int HEX(unsigned long int num);
 int hex(unsigned long int num);
 
-int run(const char *format, paramter f_list[], va_list arg_list);
 
 
 #endif
