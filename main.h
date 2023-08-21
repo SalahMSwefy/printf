@@ -22,7 +22,7 @@ int _printf_hexa(va_list list);
 int _printf_HEXA(va_list list);
 int _printf_octal(va_list list);
 int _printf_binary(va_list list);
-int _printf_unsigned(va_list list);
+int _printf_unsig(va_list list);
 int _printf_ex_str(va_list list);
 int _printf_pointer(va_list list);
 int _printf_unknown(char c);
