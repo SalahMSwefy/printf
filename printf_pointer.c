@@ -8,8 +8,8 @@
 int _printf_pointer(va_list list)
 {
 	void *p;
-	char *s = "(null)";
-	long int a;
+	char *s = "(nil)";
+	unsigned long int a;
 	int b;
 	int i;
 
