@@ -30,11 +30,11 @@ int _printf_int(va_list list)
 }
 
 /**
- *_printf_unsigned - prints an unsigned integer.
+ *_printf_unsig - prints an unsigned integer.
  *@list: arguments.
  *Return: The number of characters printed.
  */
-int _printf_unsigned(va_list list)
+int _printf_unsig(va_list list)
 {
 	int len = 0;
 	unsigned int n = va_arg(list, unsigned int);
