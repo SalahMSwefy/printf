@@ -44,29 +44,32 @@ int _printf_binary(va_list list)
 int _printf_HEXA(va_list list)
 {
 	char *res;
-	unsigned int num = va_arg(list, unsigned int);
+	unsigned int num = va_arg(list, unsigned int), temp = num;
 	char hexa[] = "0123456789ABCDEF";
-	int cntr = 0, l = 0;
+	int cntr = 0, i = 0;
 
-	res = malloc(sizeof(char) * 8);
-	if (res == NULL)
-		return (-1);
 	if (num == 0)
 	{
 		_putchar('0');
 		return (1);
 	}
-
-	while (num > 0)
+	while (temp)
 	{
-		res[l] = hexa[num % 16];
-		num /= 16;
-		l++;
 		cntr++;
+		temp /= 16;
+	}
+	res = malloc(sizeof(char) * cntr);
+	if (res == NULL)
+		return (-1);
+
+	for (i = 0; i < cntr; i++)
+	{
+		res[i] = hexa[num % 16];
+		num /= 16;
 	}
 
-	while (l--)
-		_putchar(res[l]);
+	for (i = cntr - 1; i >= 0; i--)
+		_putchar(res[i]);
 	free(res);
 	return (cntr);
 }
@@ -79,29 +82,32 @@ int _printf_HEXA(va_list list)
 int _printf_hexa(va_list list)
 {
 	char *res;
-	unsigned int num = va_arg(list, unsigned int);
+	unsigned int num = va_arg(list, unsigned int), temp = num;
 	char hexa[] = "0123456789abcdef";
-	int cntr = 0, l = 0;
+	int cntr = 0, i = 0;
 
-	res = malloc(sizeof(char) * 8);
-	if (res == NULL)
-		return (-1);
 	if (num == 0)
 	{
 		_putchar('0');
 		return (1);
 	}
-
-	while (num > 0)
+	while (temp)
 	{
-		res[l] = hexa[num % 16];
-		num /= 16;
-		l++;
 		cntr++;
+		temp /= 16;
+	}
+	res = malloc(sizeof(char) * cntr);
+	if (res == NULL)
+		return (-1);
+
+	for (i = 0; i < cntr; i++)
+	{
+		res[i] = hexa[num % 16];
+		num /= 16;
 	}
 
-	while (l--)
-		_putchar(res[l]);
+	for (i = cntr - 1; i >= 0; i--)
+		_putchar(res[i]);
 	free(res);
 	return (cntr);
 }
@@ -114,28 +120,30 @@ int _printf_hexa(va_list list)
 int _printf_octal(va_list list)
 {
 	int *res;
-	unsigned int num = va_arg(list, unsigned int);
-	int cntr = 0, l = 0;
+	unsigned int num = va_arg(list, unsigned int), temp = num;
+	int cntr = 0, i = 0;
 
-	res = malloc(sizeof(int) * 12);
-	if (res == NULL)
-		return (-1);
 	if (num == 0)
 	{
 		_putchar('0');
 		return (1);
 	}
-
-	while (num > 0)
+	while (temp)
 	{
-		res[l] = (num % 8);
-		num /= 8;
 		cntr++;
-		l++;
+		temp /= 8;
 	}
+	res = malloc(sizeof(int) * cntr);
+	if (res == NULL)
+		return (-1);
 
-	while (l--)
-		_putchar(res[l] + '0');
+	for (i = 0; i < cntr; i++)
+	{
+		res[i] = (num % 8);
+		num /= 8;
+	}
+	for (i = cntr - 1; i >= 0; i--)
+		_putchar(res[i] + '0');
 	free(res);
 	return (cntr);
 }
