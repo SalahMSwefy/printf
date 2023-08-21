@@ -8,9 +8,10 @@
 int _printf_int(va_list list)
 {
 	int len = 0;
-	int r = 0;
 	int n = va_arg(list, int);
+	int r = 0, last = n % 10;
 
+	n /= 10;
 	if (n < 0)
 	{
 		_putchar('-');
@@ -36,7 +37,7 @@ int _printf_int(va_list list)
 		r /= 10;
 		len++;
 	}
-
+	_putchar(last + '0');
 	return (len);
 }
 
@@ -47,10 +48,11 @@ int _printf_int(va_list list)
  */
 int _printf_unsigned(va_list list)
 {
-	int r = 0;
 	int len = 0;
 	unsigned int n = va_arg(list, unsigned int);
+	unsigned int r = 0, last = n % 10;
 
+	n /= 10;
 	if (n == 0)
 	{
 		_putchar('0');
@@ -69,6 +71,7 @@ int _printf_unsigned(va_list list)
 		r /= 10;
 		len++;
 	}
-
+	_putchar(last + '0');
 	return (len);
 }
+

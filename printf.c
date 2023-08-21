@@ -22,6 +22,10 @@ int _printf(const char *const format, ...)
 		return (-1);
 	for (i = 0; format[i] != '\0'; i++)
 	{
+		if (format[i] == '%' && format[i + 1] == '\0')
+		{
+			return (-1);
+		}
 		if (format[i] == '%')
 		{
 			j = 0;
